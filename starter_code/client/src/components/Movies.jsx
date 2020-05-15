@@ -22,8 +22,8 @@ async componentDidMount(){
             return(
           <section key={movies._id}>
                 <h3>{movies.title}</h3>
-                <img src={movies.image} alt={movies.title}/>
-                <Link to={`/movies/${movies._id}`}>Hello</Link>
+                <img width='200px' src={movies.image} alt={movies.title}/>
+            <Link to={`/movies/${movies._id}`}>More info on {movies.title}</Link>
       
 
           </section> 
@@ -40,7 +40,7 @@ async componentDidMount(){
             console.log(this.state)
             return (
                   <div>
-                      <h1>hello</h1>  
+                      <h1>Movie Catalog</h1>  
                         {this.displayMovie()}
                   </div>
             );

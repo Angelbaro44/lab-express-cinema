@@ -19,7 +19,13 @@ router.get('/moviedetails/:id', (req,res) =>{
   res.json(movies)
 )});
 
-// router.post('/new-post',(req,res)=>{
-//   movies.create().then(movies=>res.json(movies))
-})
+router.post('/new-post',(req,res)=>{
+  movies.create(req.body).then(movies=>res.json(movies))
+});
+
+router.delete('/delete-post/:id', (req,res) =>{
+  console.log('movie id deleted',req.params);
+  movies.findByIdAndDelete(req.params.id).then(movies=>
+  res.json(movies)
+)});
 module.exports = router;

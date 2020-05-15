@@ -14,6 +14,14 @@ class MovieDetails extends Component {
       movie: res.data
     });
   }
+  deletePost=(event)=>{
+      console.log('sent!')
+      Axios.delete(`http://localhost:5000/delete-post/${this.props.match.params.id}`)
+      .then(response => response)
+      .catch((error) => {
+        throw error.response
+      })
+}
 
   render() {
 console.log(this.state.movie.stars)
@@ -26,7 +34,8 @@ console.log(this.state.movie.stars)
         <p>{this.state.movie.description}</p>
         <ul>{this.state.movie.showtimes?.map(count=><li>{count}</li>)}</ul>
         <br />
-        <Link to="/movies"><button>Go Back</button></Link>       
+        <Link to="/movies"><button>Go Back</button></Link>  
+        <Link to="/movies"><button onClick={event=>this.deletePost()}>Remove Movie</button></Link>      
       </div>
     );
   }
